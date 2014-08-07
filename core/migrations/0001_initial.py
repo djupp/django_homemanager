@@ -13,8 +13,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Conversion',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('factor', models.DecimalField(decimal_places=1, verbose_name='Conversion factor', max_digits=5)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('factor', models.DecimalField(max_digits=5, decimal_places=1, verbose_name='Conversion factor')),
             ],
             options={
             },
@@ -23,9 +23,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Good',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=50)),
-                ('inStore', models.DecimalField(decimal_places=1, verbose_name='Amount of Good in Storage', max_digits=4)),
+                ('inStore', models.DecimalField(max_digits=4, decimal_places=1, verbose_name='Amount of Good in Storage')),
             ],
             options={
             },
@@ -34,8 +34,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Measurement',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('name', models.CharField(max_length=30, verbose_name='Unit')),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('name', models.CharField(max_length=30)),
             ],
             options={
             },
@@ -43,26 +43,38 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='good',
-            name='defaultUnit',
-            field=models.ForeignKey(blank=True, to='core.Measurement'),
+            name='defaultMeasurement',
+            field=models.ForeignKey(to='core.Measurement', blank=True),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='conversion',
-            name='toUnit',
+            name='toMeasurement',
             field=models.ForeignKey(to='core.Measurement'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='conversion',
-            name='fromUnit',
+            name='fromMeasurement',
             field=models.ForeignKey(to='core.Measurement'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='measurement',
-            name='compatibleUnit',
-            field=models.ManyToManyField(through='core.Conversion', to='core.Measurement', blank=True),
+            name='relatedMeasurements',
+            field=models.ManyToManyField(to='core.Measurement', blank=True, through='core.Conversion'),
             preserve_default=True,
+        ),
+        migrations.CreateModel(
+            name='Unit',
+            fields=[
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('name', models.CharField(max_length=30)),
+                ('conversion', models.DecimalField(max_digits=10, blank=True, decimal_places=4)),
+                ('baseUnit', models.ForeignKey(to='core.Unit', null=True)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
         ),
     ]

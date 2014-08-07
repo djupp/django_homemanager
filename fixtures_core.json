@@ -1,0 +1,9 @@
+[
+{"model": "core.unit", "fields": {"conversion": "1.0000000000", "baseUnit": null, "name": "kilogram", "symbol": "kg"}, "pk": 1},
+{"model": "core.unit", "fields": {"conversion": "0.0283495231", "baseUnit": 1, "name": "ounce", "symbol": "oz"}, "pk": 2},
+{"model": "core.unit", "fields": {"conversion": "0.4535923700", "baseUnit": 1, "name": "pound", "symbol": "lb"}, "pk": 3},
+{"model": "core.unit", "fields": {"conversion": "1.0000000000", "baseUnit": null, "name": "liter", "symbol": "l"}, "pk": 4},
+{"model": "core.unit", "fields": {"conversion": "0.0150000000", "baseUnit": 4, "name": "tablespoon", "symbol": "tbsp"}, "pk": 5},
+{"model": "core.unit", "fields": {"conversion": "0.0050000000", "baseUnit": 4, "name": "teaspoon", "symbol": "tsp"}, "pk": 6},
+{"model": "core.unit", "fields": {"conversion": "0.0300000000", "baseUnit": 4, "name": "fluid ounce", "symbol": "fl.oz"}, "pk": 7}
+]

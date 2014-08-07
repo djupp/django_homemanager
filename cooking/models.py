@@ -1,5 +1,5 @@
 from django.db import models
-from core.models import Good, Measurement
+from core.models import Good, Unit
 
 
 class Recipe(models.Model):
@@ -13,7 +13,7 @@ class Ingredient(models.Model):
     good = models.ForeignKey(Good)
     recipe = models.ForeignKey(Recipe)
     amount = models.DecimalField(max_digits=4, decimal_places=1)
-    measurement = models.ForeignKey(Measurement)
+    unit = models.ForeignKey(Unit, null=True)
 
 
 class Meal(models.Model):

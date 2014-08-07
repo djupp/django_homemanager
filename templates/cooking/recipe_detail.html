@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block body %}
+    {{ recipe.name }}
+    {{ recipe.link }}
+    {% for ingredient in ingredients %}
+    {{ ingredient.name }}
+{% endblock %}

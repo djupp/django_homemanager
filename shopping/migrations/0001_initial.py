@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Product',
             fields=[
-                ('good_ptr', models.OneToOneField(primary_key=True, auto_created=True, serialize=False, to='core.Good')),
+                ('good_ptr', models.OneToOneField(auto_created=True, to='core.Good', primary_key=True, serialize=False)),
             ],
             options={
             },
@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Purchase',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
                 ('date', models.DateField()),
                 ('amount', models.DecimalField(decimal_places=1, max_digits=4)),
                 ('price', models.DecimalField(decimal_places=2, max_digits=6)),
@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Store',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
                 ('name', models.CharField(max_length=30)),
             ],
             options={
