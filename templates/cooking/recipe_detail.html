@@ -4,7 +4,7 @@
     <a href="{{ recipe.link }}"> {{ recipe.name }} </a>
     <ul>
     {% for ingredient in ingredients %}
-    <li> {{ ingredient.good.name }}  ({{ ingredient.amount }} {{ ingredient.unit.name }}, currently available: {% unitconvert ingredient.good.inStore current=ingredient.good.defaultUnit new=ingredient.unit %).
+    <li> {{ ingredient.good.name }}  ({{ ingredient.amount }} {{ ingredient.unit.name }}, currently available: {% unitconvert ingredient.good.inStore current=ingredient.good.defaultUnit new=ingredient.unit %}).
     {% endfor %}
     </ul>
 {% endblock %}
