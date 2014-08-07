@@ -1,7 +1,8 @@
 <!DOCTYPE HTML PUBLIC"-//W3C//DTD HTML 4.01//EN">
+{% load staticfiles %}
 <html lang="en">
     <head>
-        {% block stylesheet %} <link rel="stylesheet" type="text/css" href="/home/djupp/DjangoProjects/HomeManagement/Stylesheets/default.css" /> {% endblock %}
+        {% block stylesheet %} <link rel="stylesheet" type="text/css" href="{% static 'default.css' %}" /> {% endblock %}
         <title> {% block title %}{% endblock %} </title>
     </head>
     <body>

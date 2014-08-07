@@ -13,7 +13,7 @@ class Unit(models.Model):
 # meter, .001, foot, meter, .3248, ...
 
     def convert_to(self, other, amount):
-
+        # Converts this unit into other
         if self.baseUnit:
             # If this is a derived unit
             if self.baseUnit == other:

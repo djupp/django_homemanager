@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
+{% load unit_extras %}
 {% block body %}
-    {{ recipe.name }}
-    {{ recipe.link }}
+    <a href="{{ recipe.link }}"> {{ recipe.name }} </a>
+    <ul>
     {% for ingredient in ingredients %}
-    {{ ingredient.name }}
+    <li> {{ ingredient.good.name }}  ({{ ingredient.amount }} {{ ingredient.unit.name }}, currently available: {% unitconvert ingredient.good.inStore current=ingredient.good.defaultUnit new=ingredient.unit %).
+    {% endfor %}
+    </ul>
 {% endblock %}
