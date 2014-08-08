@@ -24,12 +24,16 @@ class Unit(models.Model):
                 return round(amount / other.conversion * self.conversion, 3)
             else:
                 # they don't match
+                print("tried to convert %s to %s, that doesn't work"
+                      % (self.name, other.name))
                 return False
         else:
             if other.baseUnit == self:
                 # this is the base unit for other
                 return round(amount / other.conversion, 3)
             else:
+                print("tried to convert %s to %s, that doesn't work"
+                      % (self.name, other.name))
                 return False
 
     def list_related(self):
@@ -59,3 +63,6 @@ class Good(models.Model):
             self.inStore += self.amount
         elif unit in self.defaultUnit.list_related():
             self.inStore += self.defaultUnit.convert_to(unit, amount)
+
+    def __str__(self):
+        return self.name

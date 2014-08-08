@@ -7,4 +7,4 @@ register = template.Library()
 def unitconversion(amount, *args, **kwargs):
     curUnit = kwargs['current']
     newUnit = kwargs['new']
-    return curUnit.convert_to(newUnit, amount)
+    return round(curUnit.convert_to(newUnit, amount), 1)
